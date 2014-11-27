@@ -1,0 +1,41 @@
+FUNCTION zone_track, zone_name
+
+IF (zone_name EQ 'manche')            THEN zone=[-006,-002,+048,+051]
+;IF (zone_name EQ 'brest')             THEN zone=[-015,+005,+038,+058]
+;IF (zone_name EQ 'brest')             THEN zone=[-010,+000,+043,+053]
+;IF (zone_name EQ 'brest')             THEN zone=[-006,-002,+048,+050]
+IF (zone_name EQ 'brest')             THEN zone=[-008,-002,+047,+051]
+IF (zone_name EQ 'newly')             THEN zone=[-008,-002,+047,+051]
+IF (zone_name EQ 'roscoff')           THEN zone=[-005,-003,+048,+049]
+IF (zone_name EQ 'mertz')             THEN zone=[+132,+159,-070,-066]
+IF (zone_name EQ 'east_antarctica')   THEN zone=[+030,+160,-075,-055]
+IF (zone_name EQ 'baie_morbihan')     THEN zone=[-004,-002,+046,+048]
+; ETUDE MULTI-APPAREILS DORIS - GPS - MAREGRAPHE - ALTIMETRIE
+IF (zone_name EQ 'ascen')             THEN zone=[-016,-013,-010,-006]
+IF (zone_name EQ 'betio')             THEN zone=[+171,+175,+000,+003]
+IF (zone_name EQ 'chath')             THEN zone=[+174,+179,-047,-042]
+IF (zone_name EQ 'dakar')             THEN zone=[-020,-015,+012,+017]
+IF (zone_name EQ 'easid')             THEN zone=[-111,-108,-029,-025]
+IF (zone_name EQ 'kergu')             THEN zone=[+067,+072,-051,-047.5]
+IF (zone_name EQ 'kerHF')             THEN zone=[+067,+072,-050,-049.0]
+IF (zone_name EQ 'mahe')              THEN zone=[+053,+058,-007,-002]
+IF (zone_name EQ 'male')              THEN zone=[+071,+076,+002,+006]
+IF (zone_name EQ 'manil')             THEN zone=[+119,+123,+013,+016]
+IF (zone_name EQ 'mario')             THEN zone=[+036,+040,-049,-045]
+IF (zone_name EQ 'miami')             THEN zone=[-082,-076,+023,+028]
+IF (zone_name EQ 'noume')             THEN zone=[+164,+168,-024,-020]
+IF (zone_name EQ 'papee')             THEN zone=[-151,-147,-019,-015]
+IF (zone_name EQ 'ponta')             THEN zone=[-028,-023,+035,+040]
+IF (zone_name EQ 'reykj')             THEN zone=[-024,-020,+062,+066]
+IF (zone_name EQ 'rikit')             THEN zone=[-137,-133,-025,-021]
+IF (zone_name EQ 'sal')               THEN zone=[-025,-021,+014,+020]
+IF (zone_name EQ 'sancz')             THEN zone=[-092,-088,-003,+003]
+IF (zone_name EQ 'stjoh')             THEN zone=[-055,-050,+045,+050]
+IF (zone_name EQ 'syowa')             THEN zone=[+036,+042,-072,-067]
+IF (zone_name EQ 'tadel')             THEN zone=[+138,+142,-069,-064]
+IF (zone_name EQ 'thule')             THEN zone=[-071,-066,+074,+079]
+
+limit=[zone[2],zone[0],zone[3],zone[1]]
+;limit=latmin,lonmin,latmax,lonmax
+RETURN, limit
+END

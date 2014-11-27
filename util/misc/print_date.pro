@@ -1,0 +1,27 @@
+FUNCTION print_date, juld, single=single, jma=jma, tminformat=tminformat
+
+IF KEYWORD_SET(single) THEN BEGIN
+  IF FINITE(juld) THEN BEGIN
+  CALDAT, juld,m,d,y,h,mn,s
+  d=STRING(STRCOMPRESS(STRING(d,FORMAT='(I2.2)'),/REMOVE_ALL),'/',$
+    STRCOMPRESS(STRING(m, FORMAT='(I2.2)'),/REMOVE_ALL),'/',$
+    STRCOMPRESS(STRING(y, FORMAT='(I4)'),/REMOVE_ALL),' ',$
+    STRCOMPRESS(STRING(h, FORMAT='(I2.2)'),/REMOVE_ALL),':',$
+    STRCOMPRESS(STRING(mn,FORMAT='(I2.2)'),/REMOVE_ALL),':',$
+    STRCOMPRESS(STRING(s,FORMAT='(I2.2)'),/REMOVE_ALL))
+  
+  IF KEYWORD_SET(jma) THEN d=STRING(STRCOMPRESS(STRING(d,FORMAT='(I2.2)'),/REMOVE_ALL),'/',$
+    STRCOMPRESS(STRING(m, FORMAT='(I2.2)'),/REMOVE_ALL),'/',$
+    STRCOMPRESS(STRING(y, FORMAT='(I4)'),/REMOVE_ALL))
+
+  IF KEYWORD_SET(tminformat) THEN d=STRING(STRCOMPRESS(STRING(d,FORMAT='(I2.2)'),/REMOVE_ALL),$
+    STRCOMPRESS(STRING(m, FORMAT='(I2.2)'),/REMOVE_ALL),$
+    STRCOMPRESS(STRING(y, FORMAT='(I4)'),/REMOVE_ALL))
+   
+  RETURN, d
+  ENDIF ELSE RETURN,"Attention => NaN value"
+ENDIF
+id=WHERE(FINITE(juld),count)
+IF (count GT 0) THEN print,FORMAT='(C(CDI2.2,"/",CMOI2.2,"/",CYI4.4,X,CHI2.2,":",CMI2.2,":",CSI2.2))',juld[id]
+RETURN, '--end of print_date--'
+END
